@@ -1,13 +1,19 @@
-const { usuarios, proximoId } = 
-    require('../data.db')
+const { usuarios, proximoId} = require('../data/db')
+
+//  { nome, email, idade}
 
 module.exports = {
-    novoUsuario(_, { nome, email, idade}){
+    novoUsuario(_, args){
+        const emailExistente = usuarios
+            .some(u => u.email === args.email)
+
+        if(emailExistente){
+            throw new Error('E-mail Cadastrado')
+        }
+        
         const novo = {
             id: proximoId(),
-            nome,
-            email,
-            idade,
+            ...args,
             perfil_id: 1,
             status: 'ATIVO'
         }

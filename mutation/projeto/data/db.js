@@ -31,4 +31,8 @@ const usuarios = [{
     status: 'BLOQUEADO'
 }]
 
-module.exports = { usuarios, perfis, proximoId }
+module.exports = {
+    usuarios,
+    perfis,
+    proximoId
+}
