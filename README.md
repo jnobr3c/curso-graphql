@@ -16,14 +16,12 @@ use shortcut Ctrl+Alt+N
 To stop the running code:
 use shortcut Ctrl+Alt+M
 
-na pasta banco-de-dados\projeto instalar a dependencia do knex com o comando npm i -s knex mysql
+na pasta banco-de-dados\projeto instalar a dependencia do knex com o comando `npm i -s knex mysql`
 
-rodar na pasta: npx knex init
+rodar na pasta: `npx knex init`
 
-rodar o comando: npx knex migrate:
+rodar o comando: `npx knex migrate: make tabela_perfis` ,
 
-make tabela_perfis ,
+`npx knex migrate:make tabela_usuarios` ,
 
-npx knex migrate:make tabela_usuarios ,
-
-npx knex migrate:make tabela_usuarios_perfis
+`npx knex migrate:make tabela_usuarios_perfis`

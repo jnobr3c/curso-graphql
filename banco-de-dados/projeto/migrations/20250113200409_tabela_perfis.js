@@ -7,8 +7,13 @@ exports.up = function(knex) {
         table.increments('id').primary()
         table.string('nome').notNullable().unique()
         table.string('rotulo').notNull()
+    }).then(function () {
+        return knex ('perfis').insert([
+            { nome: 'comun', rotulo: 'Comun' },
+            { nome: 'admin', rotulo: 'Administrador' },
+            { nome: 'master', rotulo: 'Master' },
+        ])
     })
-  
 };
 
 /**
