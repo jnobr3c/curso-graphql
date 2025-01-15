@@ -25,3 +25,5 @@ rodar o comando: `npx knex migrate: make tabela_perfis` ,
 `npx knex migrate:make tabela_usuarios` ,
 
 `npx knex migrate:make tabela_usuarios_perfis`
+
+Documentação [Knex knexjs.org](https://knexjs.org/guide/)
