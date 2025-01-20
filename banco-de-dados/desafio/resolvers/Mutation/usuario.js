@@ -1,5 +1,6 @@
 const db = require('../../config/db')
 const { perfil: obterPerfil, perfil } = require('../Query/perfil') //recuperar a função
+const { usuario: obterUsuario } = require('../Query/usuario')
 
 module.exports = {
     async novoUsuario(_, { dados }) {
@@ -59,9 +60,27 @@ module.exports = {
         } */
     },
     async excluirUsuario(_, { filtro }) {
-        // Implementar
+        try {
+            const usuario = await obterUsuario(_, { filtro })
+            if(usuario) {
+                const { id } = usuario
+                await db( 'usuarios_perfis' )
+                    .where({ usuario_id: id }).delete()
+                await db( 'usuarios' )
+                    .where({ id }).delete()
+            }
+            return usuario
+        } catch(e) {
+            throw new console.Error(e.sqlMessage);
+            
+        }
     },
     async alterarUsuario(_, { filtro, dados }) {
-        // Implementar
+        try {
+            
+        } catch(e) {
+            throw new console.Error(e.sqlMessage);
+            
+        }
     }
 }
