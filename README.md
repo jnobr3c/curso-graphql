@@ -29,6 +29,7 @@ rodar o comando: `npx knex migrate: make tabela_perfis` ,
 Documentação [Knex knexjs.org](https://knexjs.org/guide/)
 
 --------------------
+
 Acessar a pasta `desafio` e rodar os comandos a seguir: 
 
 Na pasta desafio roda ro comando `npm i`
@@ -36,3 +37,11 @@ Na pasta desafio roda ro comando `npm i`
 Rodar as migrations com o comando `npx knex migrate:latest` para criar as tabelas e o comando `npx knex migrate:rollback` para remover
 
 Rodar o comando `npm start` para startar o apolo server irá rodar na porta 4000
+
+----------------------------------------------------------------
+
+Acessar a pasta backend => `curso-graphql\projeto-final\backend> ` e rodar o comando `npm i`
+
+Criar no banco o Schema `projeto-final` 
+
+Rodar as Migrates = > `npx knex migrate:latest`
