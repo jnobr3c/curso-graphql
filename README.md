@@ -45,3 +45,7 @@ Acessar a pasta backend => `curso-graphql\projeto-final\backend> ` e rodar o com
 Criar no banco o Schema `projeto-final` 
 
 Rodar as Migrates = > `npx knex migrate:latest`
+
+----------------------------------------------------------------
+Autenticação JWT
+http://jwt.io
