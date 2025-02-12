@@ -20,3 +20,9 @@ module.exports = {
         }
     }
 }
+
+/* uma das possibilidades para não importar o banco seria usar o context 
+perfis(obj, args, ctx) { //ctx = context
+        ctx.db
+        return db('perfis')
+    }, */
