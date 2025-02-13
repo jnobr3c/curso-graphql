@@ -27,7 +27,7 @@ rodar o comando: `npx knex migrate: make tabela_perfis` ,
 `npx knex migrate:make tabela_usuarios_perfis`
 
 Documentação [Knex knexjs.org](https://knexjs.org/guide/)
-
+Documentação GraphQL [graphql.org](https://graphql.org/learn/)
 --------------------
 
 Acessar a pasta `desafio` e rodar os comandos a seguir: 
