@@ -74,7 +74,7 @@ const mutatios = {
             const usuario = await obterUsuario(_, { filtro })
             if(usuario) {
                 const { id } = usuario
-                if(dados.perfis) {
+                if(ctx.admin && dados.perfis) {
                     await db('usuarios_perfis')
                         .where({ usuario_id: id }).delete()
 
