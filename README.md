@@ -49,5 +49,10 @@ Criar no banco o Schema `projeto-final`
 Rodar as Migrates = > `npx knex migrate:latest`
 
 ----------------------------------------------------------------
-Autenticação JWT
-http://jwt.io
+Links Úteis
+
+https://jwt.io/
+
+https://graphql.org/learn/execution/#root-fields-resolvers
+
+https://www.apollographql.com/docs/apollo-server/essentials/data#context
