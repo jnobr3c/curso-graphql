@@ -14,7 +14,8 @@ const mutatios = {
             }
         })
     },
-    async novoUsuario(_, { dados }) {
+    async novoUsuario(_, { dados }, ctx) {
+        ctx && ctx.validarAdmin()
         try {
             const idsPerfis = []
 
@@ -50,7 +51,8 @@ const mutatios = {
             throw new Error(e.sqlMessage)
         }
     },
-    async excluirUsuario(_, args) {
+    async excluirUsuario(_, args, ctx) {
+        ctx && ctx.validarAdmin()
         try {
             const usuario = await obterUsuario(_, args)
             if(usuario) {
@@ -66,7 +68,8 @@ const mutatios = {
         }
 
     },
-    async alterarUsuario(_, { filtro, dados }) {
+    async alterarUsuario(_, { filtro, dados }, ctx) {
+        ctx && ctx.validarUsuarioFiltro(fil)
         try {
             const usuario = await obterUsuario(_, { filtro })
             if(usuario) {

@@ -22,10 +22,12 @@ module.exports = async ({ req }) => {
         }
     }
     if(usuario && usuario.perfis) {
-        admin = usuario.perfis.includes('admin')
+        admin = usuario.perfis.includes('comum')
     }
 
     const err = new Error('Acesso negado!')
+    console.log(usuario)
+    console.log(admin)
 
     return {
         usuario,
@@ -35,6 +37,17 @@ module.exports = async ({ req }) => {
         },
         validarAdmin() {
             if(!admin) throw err
+        },
+        validarUsuarioFiltro(filtro) {
+            if(admin) return
+
+            if(!usuario) throw err
+            if(!filtro) throw err
+            
+            const { id, email } = filtro
+            if(!id && !email) throw err
+            if(!id && id !== usuario.id) throw err
+            if(email && email !== usuario.email) throw err
         }        
     }
 }
