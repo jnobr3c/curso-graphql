@@ -69,7 +69,7 @@ const mutatios = {
 
     },
     async alterarUsuario(_, { filtro, dados }, ctx) {
-        ctx && ctx.validarUsuarioFiltro(fil)
+        ctx && ctx.validarUsuarioFiltro(filtro)
         try {
             const usuario = await obterUsuario(_, { filtro })
             if(usuario) {
