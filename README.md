@@ -56,3 +56,19 @@ https://jwt.io/
 https://graphql.org/learn/execution/#root-fields-resolvers
 
 https://www.apollographql.com/docs/apollo-server/essentials/data#context
+
+--------------------------------------------------------------------
+
+Acessar a pasta backend => `curso-graphql\projeto-final\frontend> `, comando `cd ..\frontend\` e rodar o comando `npm i`
+
+Rodar o comando `npm run serve` para complilar e startar a aplicação na porta 8080 caso não esteja sendo utilizada esta porta 8080
+
+no caso de problema seguir por este caminho:
+
+Nesse caso será preciso habilitar o openssl legacy provider.  Pelo erro que você está recebendo, imagino que você esteja utilizando o sistema Windows, porém não consigo identificar se o terminal que você está utilizando para rodar o projeto é o cmd ou o Poweshell.
+
+Caso você esteja usando o cmd, rode o comando `set NODE_OPTIONS=--openssl-legacy-provider` e  depois o comando `npm run serve`, e caso esteja utilizando o Powershell, rode o comando `$env:NODE_OPTIONS = "--openssl-legacy-provider"` e depois o comando `npm run serve`.
+
+Com relação ao `package-lock.json`, este pode ser apagado sim, já que ele é criado a partir das dependências listadas no `package.json`.
+
+![alt text](image.png)
