@@ -72,3 +72,5 @@ Caso você esteja usando o cmd, rode o comando `set NODE_OPTIONS=--openssl-legac
 Com relação ao `package-lock.json`, este pode ser apagado sim, já que ele é criado a partir das dependências listadas no `package.json`.
 
 ![alt text](image.png)
+
+Frontend = https://vuetifyjs.com/en/components/all/#containment
