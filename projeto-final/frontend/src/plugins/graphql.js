@@ -7,11 +7,14 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 //aula 95
 Vue.use({
     install(Vue) {
-        //Vue.prototype.$api = 'teste'
+        //Vue.prototype.$api = 'Teste'
+
+        //Apolloink
         const httpLink = createHttpLink({
             uri: 'http://localhost:4000/'
         })
 
+        //Apolloink
         const authLink = setContext((_, { headers }) => {
             const token = localStorage.getItem('token')
 
@@ -27,5 +30,7 @@ Vue.use({
             link: authLink.concat(httpLink),
             cache: new InMemoryCache()
         })
+    
     }
+                
 })
