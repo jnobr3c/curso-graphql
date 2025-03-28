@@ -17,7 +17,6 @@ Vue.use({
         //Apolloink
         const authLink = setContext((_, { headers }) => {
             const token = localStorage.getItem('token')
-
             return {
                 headers: {
                     ...headers,
@@ -29,8 +28,6 @@ Vue.use({
         Vue.prototype.$api = new ApolloClient({
             link: authLink.concat(httpLink),
             cache: new InMemoryCache()
-        })
-    
-    }
-                
+        })    
+    }                
 })

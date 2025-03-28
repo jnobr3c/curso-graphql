@@ -82,13 +82,15 @@ export default {
         novoUsuario() {
             // implementar
         },
-        obterPerfis() {            
+        obterPerfis() {                   
             this.$api.query({
                 query: gql`{ perfis { id rotulo } }`
             }).then(resultado => {
-                this.perfis = resultado.data.perfis
+                console.log("Perfis recebidos:", resultado) 
+                this.perfis = resultado.data.perfis || []
                 this.erros = null
             }).catch(e => {
+                console.error("Erro ao obter perfis:", e)
                 this.erros = e
             })
         }

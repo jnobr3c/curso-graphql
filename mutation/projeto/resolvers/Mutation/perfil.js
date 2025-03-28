@@ -1,57 +1,49 @@
-const { perfis, proximoId } = 
-    require('../../data/db')
-
-function indicePerfil(filtro) {
-    if(!filtro) return -1
-    const { id, nome } = filtro
-    if(id) {
-        return perfis
-            .findIndex(p => p.id === id)
-    } else if(nome) {
-        return perfis
-            .findIndex(p => p.nome === nome)
-    }
-    return -1
-}
+const db = require('../../config/db')
+const { perfil: obterPerfil } = require('../Query/perfil')
 
 module.exports = {
-    novoPerfil(_, { dados }) {
-        const nomeExistente = perfis
-            .some(u => u.nome === dados.nome)
-
-        if(nomeExistente) {
-            throw new Error('Perfil cadastrado')
+    async novoPerfil(_, { dados }, ctx) {
+        ctx && ctx.validarAdmin()
+       
+        try {
+            const [ id ] = await db('perfis')
+                .insert(dados)
+            return db('perfis')
+                .where({ id }).first()
+        } catch(e) {
+            throw new Error(e.sqlMessage)
         }
+    },
+    async excluirPerfil(_, args, ctx) {
+        ctx && ctx.validarAdmin()
 
-        const novo = {
-            id: proximoId(),
-            ...dados
+        try {
+            const perfil = await obterPerfil(_, args)
+            if(perfil) {
+                const { id } = perfil
+                await db('usuarios_perfis')
+                    .where({ perfil_id: id }).delete()
+                await db('perfis')
+                    .where({ id }).delete()
+            }
+            return perfil
+        } catch(e) {
+            throw new Error(e.sqlMessage)
         }
-
-        perfis.push(novo)
-        return novo
     },
-    excluirPerfil(_, { filtro }) {
-        const i = indicePerfil(filtro)
-        if(i < 0) return null
-        const excluidos = 
-            perfis.splice(i, 1)
-        return excluidos ? 
-            excluidos[0] : null
-    },
-    alterarPerfil(_, { filtro, dados }) {
-        const i = indicePerfil(filtro)
-        if(i < 0) return null
-
-        perfis[i].nome = dados.nome
-        
-        // const perfil = {
-        //     ...perfis[i],
-        //     ...args
-        // }
-
-        // perfis.splice(i, 1, perfil)
-        // return perfil
-        return perfis[i]
+    async alterarPerfil(_, { filtro, dados }, ctx) {
+        ctx && ctx.validarAdmin()
+        try {
+            const perfil = await obterPerfil(_, { filtro })
+            if(perfil) {
+                const { id } = perfil
+                await db('perfis')
+                    .where({ id })
+                    .update(dados)
+            }
+            return { ...perfil, ...dados }
+        } catch(e) {
+            throw new Error(e.sqlMessage)
+        }
     }
 }
