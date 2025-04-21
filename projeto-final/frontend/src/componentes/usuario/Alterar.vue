@@ -91,7 +91,6 @@ export default {
             // Implementar
         },
         obterPerfis() {
-            // implementar
             this.$api.query({
                 query: gql`{ perfis { id rotulo } }`
             }).then(resultado => {

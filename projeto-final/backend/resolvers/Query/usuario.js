@@ -9,18 +9,19 @@ module.exports = {
             .first()
 
         if(!usuario) {
-            throw new Error('Usuário/Senha inválido')
+            throw new Error('Usuário/Senha inválido') //usuario  não existe
         }
 
         const saoIguais =  bcrypt.compareSync(dados.senha,
             usuario.senha)
 
         if(!saoIguais) {
-            throw new Error('Usuário/Senha inválido')
+            throw new Error('Usuário/Senha inválido') // senha não confere
         }
 
-        return getUsuarioLogado(usuario)
+        return getUsuarioLogado(usuario) //retorna o token o id, o email
     },
+    
     usuarios(parent, _args, ctx) {
         ctx && ctx.validarAdmin()
         return db('usuarios')
