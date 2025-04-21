@@ -5,7 +5,7 @@ module.exports = async ({ req }) => {
      await require('./simularUsuarioLogado')(req)
 
     const auth = req.headers.authorization
-    const token = auth && auth.substring(7)
+    const token = auth && auth.substring(7) // remove o 'Bearer '
 
     let usuario = null
     let admin = false

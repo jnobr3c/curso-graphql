@@ -84,13 +84,11 @@ export default {
         },
         obterPerfis() {                   
             this.$api.query({
-                query: gql`{ perfis { id rotulo } }`
+                query: gql`{ perfis { id rotulo } }` 
             }).then(resultado => {
-                console.log("Perfis recebidos:", resultado) 
-                this.perfis = resultado.data.perfis || []
+                this.perfis = resultado.data.perfis
                 this.erros = null
             }).catch(e => {
-                console.error("Erro ao obter perfis:", e)
                 this.erros = e
             })
         }

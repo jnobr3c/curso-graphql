@@ -21,6 +21,7 @@ module.exports = {
 
         return getUsuarioLogado(usuario) //retorna o token o id, o email
     },
+    
     usuarios(parent, _args, ctx) {
         ctx && ctx.validarAdmin()
         return db('usuarios')

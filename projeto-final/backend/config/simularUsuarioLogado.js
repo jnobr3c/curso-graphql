@@ -11,7 +11,7 @@ const sql = `
     where
         up.usuario_id = u.id and
         up.perfil_id = p.id and
-        u.ativo = 2 and
+        u.ativo = 1 and
         p.nome = :nomePerfil 
     limit 1
 `
