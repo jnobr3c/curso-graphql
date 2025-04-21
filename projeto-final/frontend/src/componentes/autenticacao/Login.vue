@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from 'vuex' // Gerenciar o estado do Vuex
 import Erros from '../comum/Erros'
 
 export default {
@@ -61,6 +61,7 @@ export default {
         ...mapActions(['setUsuario']),
         login() {
             // implementar
+            
         }
     }
 }
