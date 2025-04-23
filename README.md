@@ -79,3 +79,15 @@ Frontend = https://vuetifyjs.com/en/components/all/#containment
 #### Documentação
 
 [Apollo Link](https://www.apollographql.com/docs/react/api/link/introduction)
+
+### Links Úteis
+
+https://www.apollographql.com/docs/link/
+
+https://www.w3schools.com/html/html5_webstorage.asp
+
+https://vuejs.org/
+
+https://cli.vuejs.org/guide/installation.html
+
+https://vuetifyjs.com/en/
